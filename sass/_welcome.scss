@@ -1,0 +1,52 @@
+.welcome-container {
+    height: 22rem;
+    padding-top: 8.5rem;
+    padding-bottom: 1.3rem;
+    background-image: url(../images/cover.png);
+    background-position: center;
+    background-size: cover;
+
+    @include flex(unset, column, space-between, center);
+
+    .title {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #f0f0f0;
+        text-align: center;
+
+        .title__text {
+            padding-top: 0.8rem;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+    }
+
+    .breadcrumb {
+        width: 100%;
+
+        @include flex(unset, unset, flex-end, center);
+
+        .breadcrumb-list {
+            display: flex;
+            color: white;
+
+            .breadcrumb-list-item {
+                @include transition(color)
+
+                &:not(:last-child)::after {
+                    content: '\00a0>\00a0';
+                }
+
+                &:hover {
+                    color: $orange;
+                }
+            }
+
+            .breadcrumb__page-name_active {
+                color: $orange;
+            }
+        }
+
+        
+    }
+}

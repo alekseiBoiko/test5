@@ -1,0 +1,207 @@
+// %button {
+//     font-family: 'Montserrat', sans-serif;
+//     text-decoration: none;
+//     text-transform: uppercase;
+
+//     @include transition(color background-color border box-shadow);
+// }
+
+// .slide-button, .lifestyle-button, .display-button, %bottom-button, .display-button-addon, .input-button, .top-btn {
+//     @extend %button;
+// }
+
+// .slide-button {
+//     position: relative;
+//     width: 163px;
+//     height: 43px;
+//     padding: 12px 2rem;
+//     margin: 55px 0 120px;
+//     font-size: 13px;
+//     color: white;
+//     background-color: $green;
+//     border: none;
+//     border-radius: 5px;
+//     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+
+//     &::before {
+//         position: absolute;
+//         top: -7px;
+//         left: -7px;
+//         z-index: -1;
+//         width: 177px;
+//         height: 57px;
+//         content: '';
+//         background-color: #7a7a7a;
+//         border-radius: 5px;
+//     }
+// }
+
+// .lifestyle-button {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     width: 131px;
+//     height: 2.31rem;
+//     font-size: 12px;
+//     color: black;
+//     transform: translate(-50%, -50%);
+
+//     &::before, &::after {
+//         position: absolute;
+//         z-index: -1;
+//         content: '';
+//     }
+
+//     &::before {
+//         top: -7px;
+//         left: -7px;
+//         width: 144px;
+//         height: 50px;
+//         border: 2px solid white;
+//     }
+
+//     &:hover {
+//         color: $green;
+//     }
+
+//     &.active::after {
+//         left: 40%;
+//         width: 23px;
+//         height: 250px;
+//         content: '';
+//         background-color: white;
+//         -ms-transform: translateY(-50%);
+//     }
+// }
+
+// .display-button {
+//     width: 78px;
+//     height: 27px;
+//     font-size: 10px;
+//     color: $green;
+//     border: 1px solid $green;
+//     border-radius: 3px;
+
+//     &:hover {
+//         color: white;
+//         background: $green;
+//     }
+// }
+
+// %bottom-button {
+//     min-height: 1.88rem;
+//     font-size: 0.625rem;
+//     color: #c7c7c7;
+//     border-radius: 3px;
+//     box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+// }
+
+// .bottom-button-left, .bottom-button-right {
+//     @extend %bottom-button;
+// }
+
+// .bottom-button-left {
+//     width: 8.75rem;
+// }
+
+// .bottom-button-right {
+//     width: 7.1875rem;
+// }
+
+// .display-button-addon {
+//     width: 1.5625rem;
+//     min-height: 1.88rem;
+//     font-size: 0.625rem;
+//     color: white;
+//     background-color: $green;
+//     border: none;
+//     border-radius: 0 3px 3px 0;
+//     box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+// }
+
+// .share-button {
+//     @extend %bottom-button;
+
+//     position: relative;
+//     margin-bottom: 30px;
+
+//     &::before, &::after {
+//         position: absolute;
+//         top: 50%;
+//         width: 70px;
+//         height: 3px;
+//         content: "";
+//         box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+//     }
+
+//     &::before {
+//         left: 100px;
+//     }
+
+//     &::after {
+//         right: 100px;
+//     }
+// }
+
+// .custom-input,.input-button {
+//     height: 42px;
+//     font-size: 12px;
+// }
+
+// .custom-input {
+//     color: #bdbdbd;
+//     background-color: #f7f7f7;
+//     border: none;
+//     border-radius: 3px 3px 0 0;
+
+//     &:focus {
+//         border: 2px solid $green;
+//         box-shadow: none;
+//     }
+// }
+
+// .input-button {
+//     color: #f7f7f7;
+//     background-color: #21bb65;
+//     border: 2px solid $green;
+//     border-radius: 0 0 3px 3px;
+// }
+
+// .footer-input {
+//     font-family: 'Montserrat', sans-serif;
+//     font-size: 0.75rem;
+//     color: #bdbdbd;
+//     border: none;
+
+//     &:focus {
+//         padding-left: 0;
+//         border: 2px solid #bdbdbd;
+//         box-shadow: none;
+//     }
+// }
+
+// .top-btn {
+//     width: 6.875rem;
+//     height: 6.875rem;
+//     margin: 2rem 0 0 1rem;
+//     background-color: #f1f1f1;
+
+//     &:hover {
+//         color: $green;
+//         box-shadow: 0 0 5px 5px $green;
+//     }
+
+//     .fa-chevron-up {
+//         font-size: 2rem;
+//     }
+
+//     .btn-text {
+//         font-family: 'Montserrat', sans-serif;
+//         font-size: 0.8125rem;
+//         color: black;
+
+//         b {
+//             font-size: inherit;
+//         }
+//     }
+// }

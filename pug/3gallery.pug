@@ -1,0 +1,35 @@
+- var filterItems = [{itemName: 'Photography', itemClass: 'photo'}, {itemName: 'Old Style', itemClass: 'old'}, {itemName: 'Technology', itemClass: 'tech'}, {itemName: 'Lifestyle', itemClass: 'life'}, {itemName: 'Wordpress & PHP', itemClass: 'wordpress'}, {itemName: 'Photoshop', itemClass: 'psd'}];
+
+mixin filterList (itemName, itemClass)
+    //- each value, filterItem in filterItems
+        //- if value==1
+        //-   li.filter-item.filter-active(data-filter=itemClass) itemName
+        //- else
+    button.filter-item(data-filter=itemClass) #{itemName}
+
+mixin workList (itemClass, imgNumber)
+    li(class=`works-item ${itemClass}`) 1
+        ul 
+            - for (var x=0; x<imgNumber; x++)
+                li
+                    img.works-img(src=`images/Portfolio-Image-${x+1}.png` alt=`${itemClass}`)
+
+section.portfolio 
+    .works-filter
+        .filter-type
+        ul.filter-list
+            each i in filterItems
+                +filterList(i.itemName, i.itemClass)
+        ul.works-list
+            each i in filterItems
+                +workList(i.itemClass, '8')
+
+    //-     li.works-item.web
+    //-         .works-item-holder
+    //-         img.works-img(src='images/item1.png' alt='works')
+    //-         .works-overlay
+    //-             a.works-overlay-text(href='#')
+    //-             h3
+    //-                 b Trend and fashion
+    //-             p.overlay-chosen-filter Website design
+    //-             a.works-overlay-button(href='images/team1.jpg' data-fancybox='images') +

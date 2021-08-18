@@ -1,0 +1,41 @@
+- var leftSideNav = [{url: 'about.html', name: 'about us'}, {url: 'who.html', name: 'who we are?'}, {url: 'portfolio.html', name: 'portfolio'}, {url: 'team.html', name: 'our team'}];
+- var rightSideNav = [{url: '#', name: 'services'}, {url: 'clients.html', name: 'clients'}, {url: 'how.html', name: 'how we do?'}, {url: 'contact.html', name: 'contact us'}];
+
+mixin dropRightItems (itemsNumber)
+  - for (var y=0; y<itemsNumber; y++)
+    li.drop-item.drop-item_right
+      a.drop-item__link(href="services/dropRightItem"+(y+1)) dropright title #{y+1}
+
+mixin dropDownItems (itemsNumber)
+  - for (var x=0; x<itemsNumber; x++)
+    li.drop-item.drop-item_down
+      a.drop-item__link dropdown title #{x+1}
+      ul.drop-menu.drop-menu_right
+        +dropRightItems (3)
+
+
+mixin navItem(url, name)
+  if name=='services'
+    li.nav-item
+      a.nav-item__link
+        b= name
+      .hide-wrap_for-drop-menu
+      ul.drop-menu.drop-menu_down
+        +dropDownItems (8)
+  else
+    li.nav-item
+      a.nav-item__link(href=url)
+        b= name
+
+
+header.header
+  ul.nav-block
+    each i in leftSideNav
+      +navItem(i.url, i.name)
+  a.logo
+    .logo__name oxxo 
+    .logo__slogan responsive theme
+  ul.nav-block
+    each i in rightSideNav
+      +navItem(i.url, i.name)
+  

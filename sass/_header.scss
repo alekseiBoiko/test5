@@ -1,0 +1,140 @@
+.header {
+    height: 5.7rem;
+    padding-top: 1rem;
+    background-color: #fff;
+    border-top: 2px solid $orange;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+
+    @include flex(unset, unset, center, center);
+
+    .nav-block {
+        width: 28.5%;
+
+        @include flex(unset, unset, space-between, start);
+
+        .nav-item {
+            position: relative;
+
+            @include flex(unset, unset, center, center);
+
+            .nav-item__link {
+                padding: 1rem 0.5rem;
+                color: black;
+                text-transform: uppercase;
+
+                @include transition(color background-color);
+
+                &:hover {
+                    color: $orange;
+                    background-color: #343434;
+                    border-radius: 3px;
+                }
+            }
+
+            .hide-wrap_for-drop-menu {
+                position: absolute;
+                top: 100%;
+                width: 100%;
+                height: 1rem;
+            }
+
+            .drop-menu {
+                position: absolute;
+                width: 255px;
+                list-style-position: inside;
+                list-style-type: disc;
+                background-color: #343434;
+                border-radius: 3px;
+
+                @include transition(display);
+
+                .drop-item {
+                    position: relative;
+                    padding: 1rem;
+                    color: white;
+
+                    .drop-item__link {
+                        display: inline-block;
+                        width: 85%;
+                        color: #bbb;
+                        text-align: left;
+                        text-transform: uppercase;
+
+                        @include transition(color);
+
+                        &:hover,&:active {
+                            color: white;
+                        }
+                    }
+                }
+            }
+
+            .drop-menu_right {
+                top: 0;
+                left: 100%;
+                display: none;
+            }
+
+            .drop-menu_down {
+                top: 3.9rem;
+                left: 0;
+                display: none;
+
+                .drop-item_down {
+                    &::after {
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 900;
+                        content: "\f054";
+                        opacity: 0;
+
+                        @include transition(opacity);
+                    }
+
+                    &:hover {
+                        &::after {
+                            opacity: 1;
+                        }
+
+                        .drop-menu_right {
+                            display: block;
+                        }
+                    }
+                }
+            }
+
+            &:hover, .hide-wrap_for-drop-menu:hover {
+                .drop-menu_down {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .logo {
+        position: relative;
+        width: 8.3rem;
+        height: 3.5rem;
+        margin: 0 2.4rem;
+        margin-bottom: 0.5rem;
+        font-family: 'Source Sans Pro', sans-serif;
+        text-transform: uppercase;
+        border: 1px solid black;
+
+        @include flex(unset, column, center, center);
+
+        .logo__name {
+            font-size: 2rem;
+            unicode-bidi: bidi-override;
+            direction: rtl;
+
+            &::first-letter {
+                color: $orange;
+            }
+        }
+
+        .logo__slogan {
+            font-size: 0.643rem;
+        }
+    }
+}
