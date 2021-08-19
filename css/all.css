@@ -6,9 +6,9 @@ body {
 b {
   font-weight: bold; }
 
-.welcome-container, .portfolio, .aboutUs, .footer {
+.welcome-container, .works-container, .aboutUs, .footer {
   padding-right: 9.375%;
-  padding-left: 9%; }
+  padding-left: 9.3%; }
 
 a {
   color: unset;
@@ -224,3 +224,88 @@ a {
           color: #ff7200; }
       .welcome-container .breadcrumb .breadcrumb-list .breadcrumb__page-name_active {
         color: #ff7200; }
+
+.works-container {
+  padding-top: 6.2rem; }
+  .works-container .works-filter {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: unset;
+    flex-wrap: unset;
+    -webkit-box-orient: unset;
+    -webkit-box-direction: unset;
+    -ms-flex-direction: unset;
+    flex-direction: unset;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .works-container .works-filter .filter-list {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .works-container .works-filter .filter-list .filter-item {
+        padding: 0.8rem 1rem;
+        margin: 0;
+        color: #666;
+        background-color: unset;
+        border: 1px solid #e4e4e4;
+        border-radius: 0%; }
+      .works-container .works-filter .filter-list .filter-active {
+        color: white;
+        background: #ff7200; }
+  .works-container .works-list {
+    margin: 2.6rem -1rem; }
+    .works-container .works-list .works-item {
+      width: 25%; }
+      .works-container .works-list .works-item .works-item-holder {
+        position: relative;
+        margin: 0.9rem 1rem;
+        text-align: center;
+        border: 1px solid #e4e4e4; }
+        .works-container .works-list .works-item .works-item-holder .works-img {
+          width: 100%;
+          height: 11.3rem;
+          -o-object-fit: cover;
+          object-fit: cover; }
+        .works-container .works-list .works-item .works-item-holder .works-item-title {
+          padding-top: 1rem;
+          font-size: 1.14rem; }
+        .works-container .works-list .works-item .works-item-holder .works-item-type {
+          padding: 0.7rem 0 1rem;
+          font-weight: 300; }
+        .works-container .works-list .works-item .works-item-holder .works-overlay {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          padding: 0.5rem;
+          background-color: #ff7200;
+          opacity: 0; }
+          .works-container .works-list .works-item .works-item-holder .works-overlay:hover {
+            -webkit-transition: opacity 0.5s ease 0s;
+            transition: opacity 0.5s ease 0s;
+            opacity: 0.8; }
+          .works-container .works-list .works-item .works-item-holder .works-overlay h3 {
+            color: white; }
+          .works-container .works-list .works-item .works-item-holder .works-overlay .overlay-chosen-filter {
+            font-size: 0.875rem;
+            color: #b2b2b2; }

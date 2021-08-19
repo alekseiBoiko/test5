@@ -1,0 +1,111 @@
+.works-container {
+    padding-top: 6.2rem;
+
+    .works-filter {
+        width: 100%;
+
+        @include flex(unset, unset, center, center);
+
+        .filter-list {
+            display: flex;
+
+            .filter-item {
+                padding: 0.8rem 1rem;
+                margin: 0;
+                color: #666;
+                background-color: unset;
+                border: 1px solid #e4e4e4;
+                border-radius: 0%;
+            }
+
+            .filter-active {
+                color: white;
+                background: $orange;
+            }
+        }
+    }
+
+    .works-list {
+        margin: 2.6rem -1rem;
+
+        .works-item {
+            width: 25%;
+
+            .works-item-holder {
+                position: relative;
+                margin: 0.9rem 1rem;
+                text-align: center;
+                border: 1px solid #e4e4e4;
+
+                .works-img {
+                    width: 100%;
+                    height: 11.3rem;
+                    object-fit: cover;
+                }
+
+                .works-item-title {
+                    padding-top: 1rem;
+                    font-size: 1.14rem;
+                }
+
+                .works-item-type {
+                    padding: 0.7rem 0 1rem;
+                    font-weight: 300;
+                }
+
+                .works-overlay {
+                    @include flex(null,column,center, center);
+
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    padding: 0.5rem;
+                    background-color: $orange;
+                    opacity: 0;
+
+                    &:hover {
+                        @include transition(opacity);
+
+                        opacity: 0.8;
+                    }
+
+                    h3 {
+                        color: white;
+                    }
+
+                    .overlay-chosen-filter {
+                        font-size: 0.875rem;
+                        color: #b2b2b2;
+                    }
+                }
+            }
+        }
+    }
+    //     .filter-type
+    //     ul.filter-list
+}
+
+// mixin filterList (itemName, itemClass)
+// if itemClass=='photo'
+//     button.filter-item.filter-active(data-filter=itemClass) #{itemName}
+// else
+//     button.filter-item(data-filter=itemClass) #{itemName}
+
+// mixin workList (itemClass, imgNumber)
+// li(class=`works-item ${itemClass}`) 1
+//     ul 
+//         - for (var x=0; x<imgNumber; x++)
+//             li
+//                 img.works-img(src=`images/Portfolio-Image-${x+1}.png` alt=`${itemClass}`)
+
+// section.portfolio 
+// .works-filter
+//     .filter-type
+//     ul.filter-list
+//         each i in filterItems
+//             +filterList(i.itemName, i.itemClass)
+//     ul.works-list
+//         each i in filterItems
+//             +workList(i.itemClass, '8')

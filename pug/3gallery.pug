@@ -1,28 +1,48 @@
-- var filterItems = [{itemName: 'Photography', itemClass: 'photo'}, {itemName: 'Old Style', itemClass: 'old'}, {itemName: 'Technology', itemClass: 'tech'}, {itemName: 'Lifestyle', itemClass: 'life'}, {itemName: 'Wordpress & PHP', itemClass: 'wordpress'}, {itemName: 'Photoshop', itemClass: 'psd'}];
+- 
+    var filterItems = [
+        {itemName: 'Photography', itemClass: 'photo'}, 
+        {itemName: 'Old Style', itemClass: 'old'}, 
+        {itemName: 'Technology', itemClass: 'tech'}, 
+        {itemName: 'Lifestyle', itemClass: 'life'}, 
+        {itemName: 'Wordpress & PHP', itemClass: 'wordpress'}, 
+        {itemName: 'Photoshop', itemClass: 'psd'}
+    ]
+
+- 
+    var imgItems = [
+        {imgNumber: '1', imgTitle : 'Yellow Old Car', imgTag: 'photo'},
+        {imgNumber: '2', imgTitle : 'Red Old Furniture', imgTag: 'old'},
+        {imgNumber: '3', imgTitle : 'Coctails with lemon', imgTag: 'life'},
+        {imgNumber: '4', imgTitle : 'Old Style Colorful Bike', imgTag: 'tech'},
+        {imgNumber: '5', imgTitle : 'Bottles Of Vine', imgTag: 'life'},
+        {imgNumber: '6', imgTitle : 'Old White Chair', imgTag: 'photo'},
+        {imgNumber: '7', imgTitle : 'Coctails with lemon', imgTag: 'psd'},
+        {imgNumber: '8', imgTitle : 'Old Style Red Car', imgTag: 'psd'}
+    ]
 
 mixin filterList (itemName, itemClass)
-    //- each value, filterItem in filterItems
-        //- if value==1
-        //-   li.filter-item.filter-active(data-filter=itemClass) itemName
-        //- else
-    button.filter-item(data-filter=itemClass) #{itemName}
+    if itemClass=='photo'
+        button.filter-item.filter-active(data-filter=`.${itemClass}`) #{itemName}
+    else
+        button.filter-item(data-filter=`.${itemClass}`) #{itemName}
 
-mixin workList (itemClass, imgNumber)
-    li(class=`works-item ${itemClass}`) 1
-        ul 
-            - for (var x=0; x<imgNumber; x++)
-                li
-                    img.works-img(src=`images/Portfolio-Image-${x+1}.png` alt=`${itemClass}`)
+mixin workList (imgNumber, imgTitle, imgTag)
+    li(class=`works-item ${imgTag}`)
+        .works-item-holder
+            img.works-img(src=`images/Portfolio-Image-${imgNumber}.png` alt=`${imgTitle}`)
+            .works-item-title #{imgTitle}
+            .works-item-type #{imgTag}
+            .works-overlay
 
-section.portfolio 
+section.works-container 
     .works-filter
-        .filter-type
-        ul.filter-list
+        .filter-list
             each i in filterItems
                 +filterList(i.itemName, i.itemClass)
-        ul.works-list
-            each i in filterItems
-                +workList(i.itemClass, '8')
+    ul.works-list
+        - for (var x=0; x<3; x++)
+            each i in imgItems
+                +workList(i.imgNumber, i.imgTitle, i.imgTag)
 
     //-     li.works-item.web
     //-         .works-item-holder

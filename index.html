@@ -105,93 +105,191 @@
         </ul>
       </nav>
     </section>
-    <section class="portfolio"> 
+    <section class="works-container"> 
       <div class="works-filter">
-        <div class="filter-type"></div>
-        <ul class="filter-list">
-              <button class="filter-item" data-filter="photo">Photography</button>
-              <button class="filter-item" data-filter="old">Old Style</button>
-              <button class="filter-item" data-filter="tech">Technology</button>
-              <button class="filter-item" data-filter="life">Lifestyle</button>
-              <button class="filter-item" data-filter="wordpress">Wordpress &amp; PHP</button>
-              <button class="filter-item" data-filter="psd">Photoshop</button>
-        </ul>
-        <ul class="works-list">
-              <li class="works-item photo">1
-                <ul> 
-                  <li><img class="works-img" src="images/Portfolio-Image-1.png" alt="photo"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-2.png" alt="photo"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-3.png" alt="photo"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-4.png" alt="photo"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-5.png" alt="photo"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-6.png" alt="photo"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-7.png" alt="photo"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-8.png" alt="photo"></li>
-                </ul>
-              </li>
-              <li class="works-item old">1
-                <ul> 
-                  <li><img class="works-img" src="images/Portfolio-Image-1.png" alt="old"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-2.png" alt="old"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-3.png" alt="old"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-4.png" alt="old"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-5.png" alt="old"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-6.png" alt="old"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-7.png" alt="old"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-8.png" alt="old"></li>
-                </ul>
-              </li>
-              <li class="works-item tech">1
-                <ul> 
-                  <li><img class="works-img" src="images/Portfolio-Image-1.png" alt="tech"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-2.png" alt="tech"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-3.png" alt="tech"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-4.png" alt="tech"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-5.png" alt="tech"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-6.png" alt="tech"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-7.png" alt="tech"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-8.png" alt="tech"></li>
-                </ul>
-              </li>
-              <li class="works-item life">1
-                <ul> 
-                  <li><img class="works-img" src="images/Portfolio-Image-1.png" alt="life"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-2.png" alt="life"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-3.png" alt="life"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-4.png" alt="life"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-5.png" alt="life"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-6.png" alt="life"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-7.png" alt="life"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-8.png" alt="life"></li>
-                </ul>
-              </li>
-              <li class="works-item wordpress">1
-                <ul> 
-                  <li><img class="works-img" src="images/Portfolio-Image-1.png" alt="wordpress"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-2.png" alt="wordpress"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-3.png" alt="wordpress"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-4.png" alt="wordpress"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-5.png" alt="wordpress"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-6.png" alt="wordpress"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-7.png" alt="wordpress"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-8.png" alt="wordpress"></li>
-                </ul>
-              </li>
-              <li class="works-item psd">1
-                <ul> 
-                  <li><img class="works-img" src="images/Portfolio-Image-1.png" alt="psd"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-2.png" alt="psd"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-3.png" alt="psd"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-4.png" alt="psd"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-5.png" alt="psd"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-6.png" alt="psd"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-7.png" alt="psd"></li>
-                  <li><img class="works-img" src="images/Portfolio-Image-8.png" alt="psd"></li>
-                </ul>
-              </li>
-        </ul>
+        <div class="filter-list">
+              <button class="filter-item filter-active" data-filter=".photo">Photography</button>
+              <button class="filter-item" data-filter=".old">Old Style</button>
+              <button class="filter-item" data-filter=".tech">Technology</button>
+              <button class="filter-item" data-filter=".life">Lifestyle</button>
+              <button class="filter-item" data-filter=".wordpress">Wordpress &amp; PHP</button>
+              <button class="filter-item" data-filter=".psd">Photoshop</button>
+        </div>
       </div>
+      <ul class="works-list">
+            <li class="works-item photo">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-1.png" alt="Yellow Old Car">
+                <div class="works-item-title">Yellow Old Car</div>
+                <div class="works-item-type">photo</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item old">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-2.png" alt="Red Old Furniture">
+                <div class="works-item-title">Red Old Furniture</div>
+                <div class="works-item-type">old</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item life">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-3.png" alt="Coctails with lemon">
+                <div class="works-item-title">Coctails with lemon</div>
+                <div class="works-item-type">life</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item tech">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-4.png" alt="Old Style Colorful Bike">
+                <div class="works-item-title">Old Style Colorful Bike</div>
+                <div class="works-item-type">tech</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item life">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-5.png" alt="Bottles Of Vine">
+                <div class="works-item-title">Bottles Of Vine</div>
+                <div class="works-item-type">life</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item photo">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-6.png" alt="Old White Chair">
+                <div class="works-item-title">Old White Chair</div>
+                <div class="works-item-type">photo</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item psd">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-7.png" alt="Coctails with lemon">
+                <div class="works-item-title">Coctails with lemon</div>
+                <div class="works-item-type">psd</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item psd">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-8.png" alt="Old Style Red Car">
+                <div class="works-item-title">Old Style Red Car</div>
+                <div class="works-item-type">psd</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item photo">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-1.png" alt="Yellow Old Car">
+                <div class="works-item-title">Yellow Old Car</div>
+                <div class="works-item-type">photo</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item old">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-2.png" alt="Red Old Furniture">
+                <div class="works-item-title">Red Old Furniture</div>
+                <div class="works-item-type">old</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item life">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-3.png" alt="Coctails with lemon">
+                <div class="works-item-title">Coctails with lemon</div>
+                <div class="works-item-type">life</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item tech">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-4.png" alt="Old Style Colorful Bike">
+                <div class="works-item-title">Old Style Colorful Bike</div>
+                <div class="works-item-type">tech</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item life">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-5.png" alt="Bottles Of Vine">
+                <div class="works-item-title">Bottles Of Vine</div>
+                <div class="works-item-type">life</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item photo">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-6.png" alt="Old White Chair">
+                <div class="works-item-title">Old White Chair</div>
+                <div class="works-item-type">photo</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item psd">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-7.png" alt="Coctails with lemon">
+                <div class="works-item-title">Coctails with lemon</div>
+                <div class="works-item-type">psd</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item psd">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-8.png" alt="Old Style Red Car">
+                <div class="works-item-title">Old Style Red Car</div>
+                <div class="works-item-type">psd</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item photo">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-1.png" alt="Yellow Old Car">
+                <div class="works-item-title">Yellow Old Car</div>
+                <div class="works-item-type">photo</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item old">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-2.png" alt="Red Old Furniture">
+                <div class="works-item-title">Red Old Furniture</div>
+                <div class="works-item-type">old</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item life">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-3.png" alt="Coctails with lemon">
+                <div class="works-item-title">Coctails with lemon</div>
+                <div class="works-item-type">life</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item tech">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-4.png" alt="Old Style Colorful Bike">
+                <div class="works-item-title">Old Style Colorful Bike</div>
+                <div class="works-item-type">tech</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item life">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-5.png" alt="Bottles Of Vine">
+                <div class="works-item-title">Bottles Of Vine</div>
+                <div class="works-item-type">life</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item photo">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-6.png" alt="Old White Chair">
+                <div class="works-item-title">Old White Chair</div>
+                <div class="works-item-type">photo</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item psd">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-7.png" alt="Coctails with lemon">
+                <div class="works-item-title">Coctails with lemon</div>
+                <div class="works-item-type">psd</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+            <li class="works-item psd">
+              <div class="works-item-holder"><img class="works-img" src="images/Portfolio-Image-8.png" alt="Old Style Red Car">
+                <div class="works-item-title">Old Style Red Car</div>
+                <div class="works-item-type">psd</div>
+                <div class="works-overlay"></div>
+              </div>
+            </li>
+      </ul>
     </section>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/functions.js"></script>
   </body>
 </html>
