@@ -1,13 +1,3 @@
-mixin socialList(iconClass)
-    ul.d-flex.justify-content-between.align-items-center.social-list.p-0
-      each socialmedia in ['facebook-f', 'twitter', 'instagram', 'pinterest-p', 'rss']
-          li.social-item
-            a.social-link(href=socialmedia+".com")
-              if socialmedia=='rss'
-                i(class=`fas fa-${socialmedia} ${iconClass} d-flex justify-content-center align-items-center`)
-              else
-                i(class=`fab fa-${socialmedia} ${iconClass} d-flex justify-content-center align-items-center`)
-
 doctype html
 html(lang='en')
   head
@@ -16,7 +6,7 @@ html(lang='en')
     include 1header.pug
     include 2welcome.pug
     include 3gallery.pug
-    //- include about.pug
+    include 4about.pug
     //- include footer.pug
     script(src='js/jquery-3.6.0.min.js')
     script(src='js/imagesloaded.pkgd.min.js')

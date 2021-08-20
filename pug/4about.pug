@@ -1,0 +1,78 @@
+-
+    var contactInfo = [
+        {itemName: '', itemValue: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.'},
+        {itemName: 'Adress', itemValue: '13th Street, No:25, Fatih / ISTANBUL'},
+        {itemName: 'Phone', itemValue: '+90 212 555 44 55  -  +90 212 444 33 22'},
+        {itemName: 'Mail', itemValue: 'info@companyweb.com'}
+    ]
+
+-
+    var serviceList = [
+        {itemName: 'Web Design & Development', itemValue: 'Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc. Claritas est etiam processus dynamicus, qui sequitur mutationem tudium .'},
+        {itemName: 'PHP & Wordpress Coding', itemValue: 'Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc. Claritas est etiam processus dynamicus, qui sequitur mutationem tudium .'},
+        {itemName: 'HTML 5 & CSS 3', itemValue: 'Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc. Claritas est etiam processus dynamicus, qui sequitur mutationem tudium .'},
+        {itemName: 'Project Management', itemValue: 'Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc. Claritas est etiam processus dynamicus, qui sequitur mutationem tudium .'}
+    ]
+
+mixin socialList(iconClass)
+    ul.d-flex.justify-content-between.align-items-center.social-list.p-0
+      each socialmedia in ['facebook-f', 'twitter', 'instagram', 'pinterest-p', 'rss']
+          li.social-item
+            a.social-link(href=socialmedia+".com")
+              if socialmedia=='rss'
+                i(class=`fas fa-${socialmedia} ${iconClass} d-flex justify-content-center align-items-center`)
+              else
+                i(class=`fab fa-${socialmedia} ${iconClass} d-flex justify-content-center align-items-center`)
+
+mixin contactInfo (item1, item2)
+    ul 
+        li 
+          h4.block-item__name #{item1}  
+          p.block-item__text #{item2}
+
+mixin latestArticles(articlesNumber)
+    ul.post-list
+    - for (var x=0; x<articlesNumber; x++)
+        li
+            a.articles-holder
+                img.articles-img(src=`images/Post image ${x+1}.png` alt=`Post image ${x+1}`)
+                .articles-content 
+                    h4.block-item__name Lorem Ipsum Post Title
+                    .block-item__text Lorem ipsum dolor sit amet, conse adipiscing elit. Lorem ipsum dolor.
+                    .article__data 8 April, 2014 - by Admin
+
+mixin serviceList (item1, item2)
+    ul 
+        li
+            .service-title 
+                h4.block-item__name #{item1}
+                .custom-checkbox 
+                    input.custom__input(type="checkbox", id="newCheckBox")
+                    label.custom__label(for="newCheckBox")
+            p.block-item__text #{item2}
+
+ul.about-us-container 1
+    li.about-block
+        .about-block-title
+            i.fas.fa-map-marker
+            .block-title__name Contact Info
+        each i in contactInfo
+            +contactInfo(i.itemName, i.itemValue)
+        +socialList('social-list')
+    li.about-block
+        .about-block-title
+            i.fas.fa-address-card
+            .block-title__name Latest Posts
+        +latestArticles('3')
+    li.about-block
+        .about-block-title
+            i.fas.fa-leaf
+            .block-title__name Our Services
+        each i in serviceList
+            +serviceList(i.itemName, i.itemValue)
+
+
+
+            //- <i class="fas fa-address-card"></i>
+            //- <i class="fas fa-leaf"></i>
+            //- <i class="far fa-envelope"></i>

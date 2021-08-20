@@ -10,14 +10,14 @@
 
 - 
     var imgItems = [
-        {imgNumber: '1', imgTitle : 'Yellow Old Car', imgTag: 'photo'},
-        {imgNumber: '2', imgTitle : 'Red Old Furniture', imgTag: 'old'},
-        {imgNumber: '3', imgTitle : 'Coctails with lemon', imgTag: 'life'},
-        {imgNumber: '4', imgTitle : 'Old Style Colorful Bike', imgTag: 'tech'},
-        {imgNumber: '5', imgTitle : 'Bottles Of Vine', imgTag: 'life'},
-        {imgNumber: '6', imgTitle : 'Old White Chair', imgTag: 'photo'},
-        {imgNumber: '7', imgTitle : 'Coctails with lemon', imgTag: 'psd'},
-        {imgNumber: '8', imgTitle : 'Old Style Red Car', imgTag: 'psd'}
+        {imgNumber: '1', imgTitle : 'Yellow Old Car', imgTag: 'Retro, Yellow', itemClass: 'photo'},
+        {imgNumber: '2', imgTitle : 'Red Old Furniture', imgTag: 'Old Style', itemClass: 'old'},
+        {imgNumber: '3', imgTitle : 'Coctails with lemon', imgTag: 'Drink', itemClass: 'life'},
+        {imgNumber: '4', imgTitle : 'Old Style Colorful Bike', imgTag: 'Colorful, Bike, Retro', itemClass: 'tech'},
+        {imgNumber: '5', imgTitle : 'Bottles Of Vine', imgTag: 'Vine, Red', itemClass: 'life'},
+        {imgNumber: '6', imgTitle : 'Old White Chair', imgTag: 'Old Style', itemClass: 'old'},
+        {imgNumber: '7', imgTitle : 'Coctails with lemon', imgTag: 'Drink', itemClass: 'psd'},
+        {imgNumber: '8', imgTitle : 'Old Style Red Car', imgTag: 'Cars', itemClass: 'psd'}
     ]
 
 mixin filterList (itemName, itemClass)
@@ -26,13 +26,28 @@ mixin filterList (itemName, itemClass)
     else
         button.filter-item(data-filter=`.${itemClass}`) #{itemName}
 
-mixin workList (imgNumber, imgTitle, imgTag)
-    li(class=`works-item ${imgTag}`)
+mixin workList (imgNumber, imgTitle, imgTag, itemClass)
+    li(class=`works-item ${itemClass}`)
         .works-item-holder
-            img.works-img(src=`images/Portfolio-Image-${imgNumber}.png` alt=`${imgTitle}`)
+            .works-img-holder
+                img.works-img(src=`images/Portfolio-Image-${imgNumber}.png` alt=`${imgTitle}`)
+                .works-overlay
+                    .works-overlay-icons-holder
+                        i.fas.fa-expand-arrows-alt
+                    .works-overlay-icons-holder
+                        i.fas.fa-external-link-alt
             .works-item-title #{imgTitle}
             .works-item-type #{imgTag}
-            .works-overlay
+
+mixin pagination (listNumber)
+    ul.works-list-pagination
+        li.pagination-item 
+            a.pagination-item_link <
+        - for (var x=0; x<listNumber; x++)
+            li.pagination-item 
+                a.pagination-item_link #{x+1}
+        li.pagination-item 
+            a.pagination-item_link >
 
 section.works-container 
     .works-filter
@@ -42,14 +57,6 @@ section.works-container
     ul.works-list
         - for (var x=0; x<3; x++)
             each i in imgItems
-                +workList(i.imgNumber, i.imgTitle, i.imgTag)
-
-    //-     li.works-item.web
-    //-         .works-item-holder
-    //-         img.works-img(src='images/item1.png' alt='works')
-    //-         .works-overlay
-    //-             a.works-overlay-text(href='#')
-    //-             h3
-    //-                 b Trend and fashion
-    //-             p.overlay-chosen-filter Website design
-    //-             a.works-overlay-button(href='images/team1.jpg' data-fancybox='images') +
+                +workList(i.imgNumber, i.imgTitle, i.imgTag, i.itemClass)
+    +pagination('3')
+        

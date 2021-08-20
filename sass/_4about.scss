@@ -1,0 +1,71 @@
+.about-us-container {
+    margin: 0 -1rem;
+    background: #303030;
+
+    @include flex(unset, unset, center, center);
+
+    .about-block {
+        width: 25%;
+        margin: 0 1rem;
+
+        @include flex(unset, column, flex-start, space-between);
+
+        .articles-list {
+            margin: 1rem 0 -30px 0;
+
+            .articles-item {
+                margin-bottom: 30px;
+                color: black;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+
+                .articles-img {
+                    min-width: 3.75rem;
+                    height: 3.75rem;
+                    margin-right: 15px;
+                    background-color: #7f7f7f;
+                }
+
+                .articles-comment {
+                    font-size: 10px;
+                    color: #838383;
+                }
+            }
+        }
+
+        
+
+        .custom__label {
+            position: relative;
+            display: inline-block;
+            width: 20px; height: 20px; 
+            background: $orange;
+            border-radius: 50%;
+
+            &::before {
+                content: '+';
+                position: absolute;
+                color: #fff;
+                left: 50%; top: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+        }
+
+        .custom__input {
+            display: none;
+
+            &:checked + .custom__label::before {
+                content: '-';
+            }
+            
+        }
+
+        // .custom__input:checked + .custom__label::before {
+        //     content: '-';
+        // }
+    }
+}
