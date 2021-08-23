@@ -23,29 +23,18 @@ a {
     text-decoration: unset;
 }
 
-// h2, h3, h4 {
-//     font-family: 'Montserrat', sans-serif;
-// }
+h2 {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
 
-// h2 {
-//     font-size: 1.875rem;
-// }
+h3 {
+    font-size: 0.875rem;
+    color: white;
+}
 
-// h3 {
-//     font-size: 1.5rem;
-// }
-
-// h4 {
-//     font-size: 1.25rem;
-// }
-
-// h5 {
-//     font-size: 1rem;
-// }
-
-// .news-text {
-//     margin-top: 1.6rem;
-//     font-family: 'droid_serifregular', sans-serif;
-//     font-size: 14px;
-//     color: #4a4a4a;
-// }
+p {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: #acabab;
+}
