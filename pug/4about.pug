@@ -17,7 +17,7 @@
 
 -
     var serviceList = [
-        {itemName: 'Web Design & Development', itemValue: 'Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc. Claritas est etiam processus dynamicus, qui sequitur mutationem tudium .'},
+        {itemName: 'Web Design & Development', itemValue: 'Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lecto-rum. Mirum est notare quam littera gothica, quam nunc. Claritas est etiam processus dynamicus, qui sequitur mutationem tudium.'},
         {itemName: 'PHP & Wordpress Coding', itemValue: 'Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc. Claritas est etiam processus dynamicus, qui sequitur mutationem tudium .'},
         {itemName: 'HTML 5 & CSS 3', itemValue: 'Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc. Claritas est etiam processus dynamicus, qui sequitur mutationem tudium .'},
         {itemName: 'Project Management', itemValue: 'Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc. Claritas est etiam processus dynamicus, qui sequitur mutationem tudium .'}
@@ -46,10 +46,10 @@ mixin latestArticles(articlesNumber)
 mixin serviceList (item1, item2)
     li.service-item
         h3.block-item__name #{item1}
-        .custom-checkbox 
-            input.custom__input(type="checkbox", id="newCheckBox")
-            label.custom__label(for="newCheckBox")
-            p.block-item__text_small_hidden #{item2}
+        //- .custom-checkbox 
+        input.custom__input(type="checkbox", id="newCheckBox")
+        label.custom__label(for="newCheckBox")
+        p.block-item__text_small_hidden #{item2}
 
 section.about-us-container
     ul.section-block-list    
@@ -81,7 +81,9 @@ section.about-us-container
                 i.far.fa-envelope.block-title__icon
                 h2.block-title__name Contact Form
             form.contact-forms(action='#' method='post' )
-                input(type='text' name='Name' required='' placeholder="Name*")
-                input(type='text' name='Email' required='' placeholder="E-Mail*")
-                textarea(required='' placeholder="Message")
-                button.contact-button Send
+                input.input_custom(type='text' name='Name' required='' placeholder="Name*")
+                input.input_custom(type='text' name='Email' required='' placeholder="E-Mail*")
+                textarea.textarea_custom(required='' placeholder="Message")
+                button.input-button 
+                    i.far.fa-envelope 
+                    .input-button__name Submit

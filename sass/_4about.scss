@@ -1,6 +1,46 @@
+.block-title {
+    width: 100%;
+    padding-bottom: 2rem;
+    color: white;
+
+    @include flex(unset, unset, flex-start, unset);
+
+    .block-title__icon {
+        font-size: 1.25rem;
+    }
+
+    .block-title__name {
+        padding-left: 0.5rem;
+    }
+}
+
+.block-item__name, .block-item__text {
+    line-height: 1.5em;
+}
+
+.block-item__text_small {
+    font-size: 0.8125rem;
+
+    @extend .block-item__text;
+}
+
+.block-item__text_small_orange {
+    color: $orange;
+
+    @extend .block-item__text_small;
+}
+
+.block-item__text_small_hidden {
+    @include transition(height overflow);
+
+    height: 0;
+    overflow: hidden;
+
+    @extend .block-item__text_small;
+}
+
 .about-us-container {
     width: 100%;
-    // margin: 0 -1rem;
     background: #303030;
 
     .section-block-list {
@@ -14,61 +54,14 @@
 
             @include flex(unset, column, flex-start, stretch);
 
-            // display: flex;
-            // align-items: s
-
-            .block-title {
-                width: 100%;
-                color: white;
-
-                @include flex(unset, unset, flex-start, unset);
-
-                .block-title__icon {
-                    font-size: 1.25rem;
-                }
-
-                .block-title__name {
-                    padding-left: 0.5rem;
-                }
-            }
-
-            .block-item__name, .block-item__text {
-                line-height: 1.5em;
-            }
-
-            .block-item__text_small {
-                font-size: 0.8125rem;
-
-                @extend .block-item__text;
-            }
-
-            
-            .block-item__text_small_orange {
-                color: $orange;
-
-                @extend .block-item__text_small;
-            }
-
-            .block-item__text_small_hidden {
-                height: 0;
-                overflow: hidden;
-
-                @extend .block-item__text_small;
-            }
-
             .contact-list {
-                padding-top: 0.1rem;
-
                 .contact-list-item {
-                    padding-top: 1.2rem;
+                    padding-bottom: 1rem;
                     font-weight: 300;
-                    // line-height: 1.5em;
                 }
             }
 
             .social-list {
-                padding-top: 1rem;
-
                 @include flex(unset, unset, space-between, unset);
 
                 .social-item {
@@ -83,9 +76,8 @@
             }
 
             .articles-list {
-
                 .articles-item {
-                    padding-top: 1.8rem;
+                    padding-bottom: 1.6rem;
 
                     .articles-holder {
                         @include flex(unset, unset, space-between, flex-start);   
@@ -99,37 +91,47 @@
                 }
             }
 
-            .service-item {
+            .service-list .service-item {
                 @include flex(wrap, unset, space-between, unset);
+
+                padding-bottom: 0.9rem;
+                margin-bottom: 0.6rem;
+                border-bottom: 1px solid white;
 
                 .custom__label {
                     position: relative;
                     display: inline-block;
-                    width: 20px; height: 20px; 
+                    width: 15px;
+                    height: 15px;
                     background: $orange;
                     border-radius: 50%;
-    
+
                     &::before {
-                        content: '+';
                         position: absolute;
+                        top: 50%;
+                        left: 50%;
                         color: #fff;
-                        left: 50%; top: 50%;
+                        content: '+';
                         transform: translate(-50%, -50%);
                     }
                 }
-    
+
                 .custom__input {
                     display: none;
-    
+
                     &:checked + .custom__label::before {
                         content: '-';
                     }
-    
+
                     &:checked + .custom__label + .block-item__text_small_hidden {
                         height: auto;
                         overflow: unset;
                     }
                 }
+            }
+
+            .contact-forms {
+                @include flex(wrap, unset, flex-end, flex-start);
             }
         }
     }

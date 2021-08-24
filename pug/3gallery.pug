@@ -22,16 +22,16 @@
 
 mixin filterList (itemName, itemClass)
     if itemClass=='photo'
-        button.filter-item.filter-active(data-filter=`.${itemClass}`) #{itemName}
+        a.works__element.filter-item.works__element_active(data-filter=`.${itemClass}`) #{itemName}
     else
-        button.filter-item(data-filter=`.${itemClass}`) #{itemName}
+        a.works__element.filter-item(data-filter=`.${itemClass}`) #{itemName}
 
 mixin workList (imgNumber, imgTitle, imgTag, itemClass)
     li(class=`works-item ${itemClass}`)
         .works-item-holder
             .works-img-holder
                 img.works-img(src=`images/Portfolio-Image-${imgNumber}.png` alt=`${imgTitle}`)
-                .works-overlay
+                .works__element.works-overlay
                     .works-overlay-icons-holder
                         i.fas.fa-expand-arrows-alt
                     .works-overlay-icons-holder
@@ -39,15 +39,15 @@ mixin workList (imgNumber, imgTitle, imgTag, itemClass)
             .works-item-title #{imgTitle}
             .works-item-type #{imgTag}
 
-mixin pagination (listNumber)
-    ul.works-list-pagination
-        li.pagination-item 
-            a.pagination-item_link <
-        - for (var x=0; x<listNumber; x++)
-            li.pagination-item 
-                a.pagination-item_link #{x+1}
-        li.pagination-item 
-            a.pagination-item_link >
+//- mixin pagination (listNumber)
+//-     ul.works-list-pagination
+//-         li.pagination-item 
+//-             a.pagination-item_link <
+//-         - for (var x=0; x<listNumber; x++)
+//-             li.pagination-item 
+//-                 a.pagination-item_link #{x+1}
+//-         li.pagination-item 
+//-             a.pagination-item_link >
 
 section.works-container 
     .works-filter
@@ -58,5 +58,5 @@ section.works-container
         - for (var x=0; x<3; x++)
             each i in imgItems
                 +workList(i.imgNumber, i.imgTitle, i.imgTag, i.itemClass)
-    +pagination('3')
+    //- +pagination('3')
         

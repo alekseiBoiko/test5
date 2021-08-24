@@ -1,7 +1,7 @@
 
-
-var itemSelector = ".works-item"; 
+var $filterList = $('.filter-list');
 var $checkboxes = $('.filter-item');
+var itemSelector = ".works-item"; 
 var $container = $('.works-list').isotope({ itemSelector: itemSelector });
     
         //Ascending order
@@ -18,13 +18,24 @@ var pagerClass = 'isotope-pager';
         // update items based on current filters    
 function changeFilter(selector) { $container.isotope({ filter: selector }); }
 
-// $('.filter-list').on( 'click', 'button', function() {
-//     var filterValue = $( this ).attr('data-filter');
-//     // use filterFn if matches value
-//     // filterValue = filterFns[ filterValue ] || filterValue;
-//     $('.works-list').isotope({ filter: filterValue });
-// });
-        //grab all checked filters and goto page on fresh isotope output
+ // add click by button
+function filterByDataFilter (list) {
+    list.on( 'click', 'a', function() {
+        var filterValue = $( this ).attr('data-filter');
+        $container.isotope({ filter: filterValue });
+    });
+}
+
+function addActiveFilter(list) {
+    list.each( function( i, buttonGroup ) {
+        var $buttonGroup = $( buttonGroup );
+        $buttonGroup.on( 'click', 'a', function() {
+        $buttonGroup.find('.works__element_active').removeClass('works__element_active');
+        $( this ).addClass('works__element_active');
+        });
+    });
+}
+    //grab all checked filters and goto page on fresh isotope output
 function goToPage(n) {
     currentPage = n;
     var selector = itemSelector;
@@ -32,7 +43,7 @@ function goToPage(n) {
                 // for each box checked, add its value and push to array
     $checkboxes.each(function (i, elem) {
         if (elem.checked) {
-            selector += ( currentFilter != '*' ) ? '.'+elem.value : '';
+            selector += ( currentFilter != '*' ) ? '.'+elem.data-filter: '';
             exclusives.push(selector);
         }
     });
@@ -71,7 +82,7 @@ function setPagination() {
         // for each box checked, add its value and push to array
         $checkboxes.each(function(i, elem) {
             if (elem.checked) {
-                selector += (currentFilter != '*') ? '.' + elem.value : '';
+                selector += (currentFilter != '*') ? '.' + elem.data-filter : '';
                 exclusives.push(selector);
             }
         });
@@ -90,7 +101,7 @@ function setPagination() {
             var classes = $(this).attr('class').split(' ');
             var lastClass = classes[classes.length - 1];
             // last class shorter than 4 will be a page number, if so, grab and replace
-            if (lastClass.length < 4) {
+            if (lastClass.length < 3) {
                 $(this).removeClass();
                 classes.pop();
                 classes.push(wordPage);
@@ -112,32 +123,45 @@ function setPagination() {
 
         $isotopePager.html('');
         if (currentNumberPages > 1) {
+            $arrowLeft = $('<a class="pager works__element"></a>');
+            $arrowLeft.html('<');
+            $arrowLeft.appendTo($isotopePager);
             for (var i = 0; i < currentNumberPages; i++) {
-                var $pager = $('<a href="javascript:void(0);" class="pager" ' + pageAttribute + '="' + (i + 1) + '"></a>');
+                if (i == 0) {
+                    var $pager = $('<a href="javascript:void(0);" class="pager works__element works__element_active" ' + pageAttribute + '="' + (i + 1) + '"></a>');    
+                } else {
+                    var $pager = $('<a href="javascript:void(0);" class="pager works__element" ' + pageAttribute + '="' + (i + 1) + '"></a>');
+                }
                 $pager.html(i + 1);
 
                 $pager.click(function() {
                     var page = $(this).eq(0).attr(pageAttribute);
                     goToPage(page);
                 });
+                addActiveFilter($isotopePager);
                 $pager.appendTo($isotopePager);
             }
+            $arrowRight = $('<a class="pager works__element"></a>');
+            $arrowRight.html('>');
+            $arrowRight.appendTo($isotopePager);
         }
         $container.after($isotopePager);
     }();
-}
-// remove checks from all boxes and refilter
-function clearAll() {
-    $checkboxes.each(function(i, elem) {
-        if (elem.checked) {
-            elem.checked = null;
-        }
-    });
-    currentFilter = '*';
-    setPagination();
-    goToPage(1);
+
+    // function addActiveFilter() {
+    // $('.isotope-pager').each( function( i, buttonGroup ) {
+    //         var $buttonGroup = $( buttonGroup );
+    //     $buttonGroup.on( 'click', 'a', function() {
+    //     $buttonGroup.find('.filter_active').removeClass('filter_active');
+    //     $( this ).addClass('filter_active');
+    //     });
+    // });
+    // }
 }
 
+
+filterByDataFilter ($filterList);
+addActiveFilter($filterList);
 setPagination();
 goToPage(1);
 
@@ -149,9 +173,6 @@ $checkboxes.change(function() {
     goToPage(1);
 });
 
-$('#clear-filters').click(function() {
-    clearAll()
-});
 
 $(window).resize(function() {
     itemsPerPage = defineItemsPerPage();
