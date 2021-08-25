@@ -8,10 +8,6 @@
     .block-title__icon {
         font-size: 1.25rem;
     }
-
-    .block-title__name {
-        padding-left: 0.5rem;
-    }
 }
 
 .block-item__name, .block-item__text {
@@ -20,27 +16,21 @@
 
 .block-item__text_small {
     font-size: 0.8125rem;
-
-    @extend .block-item__text;
 }
 
-.block-item__text_small_orange {
+.block-item__text_orange {
     color: $orange;
-
-    @extend .block-item__text_small;
 }
 
-.block-item__text_small_hidden {
-    @include transition(height overflow);
-
+.block-item__text_hidden {
     height: 0;
     overflow: hidden;
-
-    @extend .block-item__text_small;
 }
 
 .about-us-container {
     width: 100%;
+    padding-top: 3.6rem;
+    padding-bottom: 5rem;
     background: #303030;
 
     .section-block-list {
@@ -50,7 +40,6 @@
 
         .section-block-item {
             width: 22.5%;
-            margin-top: 3.6rem;
 
             @include flex(unset, column, flex-start, stretch);
 
@@ -61,19 +50,7 @@
                 }
             }
 
-            .social-list {
-                @include flex(unset, unset, space-between, unset);
-
-                .social-item {
-                    width: 2.7rem;
-                    height: 2.7rem;
-                    color: white;
-                    border: 1px solid white;
-                    border-radius: 50%;
-
-                    @include flex(unset, unset, center, center);
-                }
-            }
+            
 
             .articles-list {
                 .articles-item {
@@ -92,7 +69,7 @@
             }
 
             .service-list .service-item {
-                @include flex(wrap, unset, space-between, unset);
+                @include flex(wrap, unset, space-between, center);
 
                 padding-bottom: 0.9rem;
                 margin-bottom: 0.6rem;
@@ -123,7 +100,7 @@
                         content: '-';
                     }
 
-                    &:checked + .custom__label + .block-item__text_small_hidden {
+                    &:checked + .custom__label + .block-item__text_hidden {
                         height: auto;
                         overflow: unset;
                     }

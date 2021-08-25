@@ -40,8 +40,8 @@ mixin latestArticles(articlesNumber)
                 img.articles-img(src=`images/Post image ${x+1}.png` alt=`Post image ${x+1}`)
                 .articles-content 
                     h3.block-item__name Lorem Ipsum Post Title
-                    p.block-item__text_small Lorem ipsum dolor sit amet, conse adipiscing elit. Lorem
-                    p.block-item__text_small_orange 8 April, 2014 - by Admin
+                    p.block-item__text.block-item__text_small Lorem ipsum dolor sit amet, conse adipiscing elit. Lorem
+                    p.block-item__text.block-item__text_small.block-item__text_orange 8 April, 2014 - by Admin
 
 mixin serviceList (item1, item2)
     li.service-item
@@ -49,13 +49,13 @@ mixin serviceList (item1, item2)
         //- .custom-checkbox 
         input.custom__input(type="checkbox", id="newCheckBox")
         label.custom__label(for="newCheckBox")
-        p.block-item__text_small_hidden #{item2}
+        p.block-item__text.block-item__text_small.block-item__text_hidden #{item2}
 
 section.about-us-container
     ul.section-block-list    
         li.section-block-item
             .block-title
-                i.fas.fa-map-marker.block-title__icon
+                i.fas.fa-map-marker.block-title__icon.icon_in-title
                 h2.block-title__name Contact Info
             ul.contact-list
                 each i in contactInfo
@@ -65,25 +65,28 @@ section.about-us-container
                     +socialList(i.iconPrefix, i.mediaUrl)
         li.section-block-item
             .block-title
-                i.fas.fa-address-card.block-title__icon
+                i.fas.fa-address-card.block-title__icon.icon_in-title
                 h2.block-title__name Latest Posts
             ul.articles-list
                 +latestArticles('3')
         li.section-block-item
             .block-title
-                i.fas.fa-leaf.block-title__icon
+                i.fas.fa-leaf.block-title__icon.icon_in-title
                 h2.block-title__name Our Services
             ul.service-list
                 each i in serviceList
                     +serviceList(i.itemName, i.itemValue)
         li.section-block-item
             .block-title
-                i.far.fa-envelope.block-title__icon
+                i.far.fa-envelope.block-title__icon.icon_in-title
                 h2.block-title__name Contact Form
             form.contact-forms(action='#' method='post' )
-                input.input_custom(type='text' name='Name' required='' placeholder="Name*")
-                input.input_custom(type='text' name='Email' required='' placeholder="E-Mail*")
-                textarea.textarea_custom(required='' placeholder="Message")
+                .input-holder.input-holder_for-name
+                    input.input_custom(type='text' name='Name' required='' placeholder="Name*")
+                .input-holder.input-holder_for-mail
+                    input.input_custom(type='text' name='Email' required='' placeholder="E-Mail*")
+                .input-holder.input-holder_for-message
+                    textarea.textarea_custom(required='' placeholder="Message")
                 button.input-button 
-                    i.far.fa-envelope 
+                    i.far.fa-envelope.icon_in-title 
                     .input-button__name Submit

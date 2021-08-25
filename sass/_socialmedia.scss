@@ -1,48 +1,19 @@
-// .social-list {
-//     .social-item {
-//         .social-link {
-//             text-decoration: none;
+.social-list {
+    @include flex(unset, unset, space-between, unset);
 
-//             .logo-social-icon {
-//                 color: $light-gray;
+    .social-item {
+        width: 2.7rem;
+        height: 2.7rem;
+        color: white;
+        border: 1px solid white;
+        border-radius: 50%;
 
-//                 &:hover {
-//                     color: black;
-//                 }
-//             }
+        @include flex(unset, unset, center, center);
+        @include transition(color border-color);
 
-//             .display-social-icon {
-//                 color: $light-gray;
-
-//                 &:hover {
-//                     color: $green;
-//                 }
-//             }
-
-//             .share-social-icon {
-//                 width: 35px;
-//                 height: 35px;
-//                 margin-right: 5px;
-//                 color: white;
-//                 background-color: black;
-//                 border-radius: 50%;
-
-//                 &:hover {
-//                     background-color: $green;
-//                 }
-//             }
-
-//             .testimonials-social-icon {
-//                 color: black;
-
-//                 &:hover {
-//                     color: $green;
-//                 }
-//             }
-
-//             .logo-social-icon, .display-social-icon, .share-social-icon, .testimonials-social-icon {
-//                 @include transition(color background-color);
-//             }
-//         }
-//     }
-// }
+        &:hover {
+            color: $orange;
+            border-color: $orange;
+        }
+    }
+}

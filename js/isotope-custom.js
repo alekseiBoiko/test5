@@ -6,7 +6,7 @@ var $container = $('.works-list').isotope({ itemSelector: itemSelector });
     
         //Ascending order
 var responsiveIsotope = [ [480, 4] , [720, 6] ];
-var itemsPerPageDefault = 6;
+var itemsPerPageDefault = 8;
 var itemsPerPage = defineItemsPerPage();
 var currentNumberPages = 1;
 var currentPage = 1;

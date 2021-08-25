@@ -1,3 +1,31 @@
+.input-holder {
+    position: relative;
+    width: 100%;
+    color: $gray;
+
+    &::after {
+        position: absolute;
+        left: 90%;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+    }
+}
+
+.input-holder_for-name::after {
+    top: 25%;
+    content: "\f007";
+}
+
+.input-holder_for-mail::after {
+    top: 25%;
+    content: "\f0e0";
+}
+
+.input-holder_for-message::after {
+    top: 10%;
+    content: "\f303";
+}
+
 .input_custom,.input-button, .textarea_custom {
     border: none;
     border-radius: 3px;
@@ -13,20 +41,6 @@
     padding-left: 1em;
     margin-bottom: 0.875rem;
     color: #bdbdbd;
-
-    &::before {
-        position: absolute;
-        top: 50%;
-        z-index: 10;
-        color: red;
-        content: 'Name';
-    }
-
-    &::after {
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        content: "\f054";
-    }
 
     &:hover {
         border: 2px solid $orange;
@@ -46,8 +60,11 @@
     background-color: $orange;
 
     @include flex(unset, unset, center, center);
+    @include transition(color background-color border);
 
-    .input-button__name {
-        margin-left: 0.5rem;
+    &:hover {
+        color: $orange;
+        background-color: white;
+        border: 1px solid $orange;
     }
 }

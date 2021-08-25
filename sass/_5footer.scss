@@ -1,0 +1,36 @@
+.footer {
+    height: 70px;
+    color: white;
+    background: #202020;
+
+    @include flex(unset, unset, space-between, center);
+
+    .footer__logo-holder {
+        padding-bottom: 0.5rem;
+    }
+
+    .copyright {
+        width: 56%;
+        font-size: 0.875rem;
+        font-weight: 300;
+        text-align: left;
+    }
+
+    .footer-nav {
+        margin: 0 -1rem;
+        font-weight: 300;
+        color: #acabab;
+
+        @include flex(unset, unset, space-between, center);
+
+        .footer-nav-item {
+            margin: 0 0.8rem;
+
+            @include transition(color);
+
+            &:hover {
+                color: white;
+            }
+        }
+    }
+}

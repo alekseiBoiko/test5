@@ -1,5 +1,18 @@
-- var leftSideNav = [{url: 'about.html', name: 'about us'}, {url: 'who.html', name: 'who we are?'}, {url: 'portfolio.html', name: 'portfolio'}, {url: 'team.html', name: 'our team'}];
-- var rightSideNav = [{url: '#', name: 'services'}, {url: 'clients.html', name: 'clients'}, {url: 'how.html', name: 'how we do?'}, {url: 'contact.html', name: 'contact us'}];
+- 
+  var leftSideNav = [
+    {url: 'about.html', name: 'about us'}, 
+    {url: 'who.html', name: 'who we are?'}, 
+    {url: 'portfolio.html', name: 'portfolio'}, 
+    {url: 'team.html', name: 'our team'}
+  ];
+
+- 
+  var rightSideNav = [
+    {url: '#', name: 'services'}, 
+    {url: 'clients.html', name: 'clients'}, 
+    {url: 'how.html', name: 'how we do?'}, 
+    {url: 'contact.html', name: 'contact us'}
+  ];
 
 mixin dropRightItems (itemsNumber)
   - for (var y=0; y<itemsNumber; y++)
@@ -32,9 +45,10 @@ header.header
   ul.nav-block
     each i in leftSideNav
       +navItem(i.url, i.name)
-  a.logo
-    .logo__name oxxo 
-    .logo__slogan responsive theme
+  .header__logo-holder
+    a.logo
+      .logo__name oxxo 
+      .logo__slogan responsive theme
   ul.nav-block
     each i in rightSideNav
       +navItem(i.url, i.name)

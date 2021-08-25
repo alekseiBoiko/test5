@@ -38,3 +38,28 @@ p {
     font-weight: 300;
     color: #acabab;
 }
+
+.logo {
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+
+    .logo__name {
+        font-size: 1.8rem;
+        font-weight: bold;
+        unicode-bidi: bidi-override;
+        direction: rtl;
+
+        &::first-letter {
+            color: $orange;
+        }
+    }
+
+    .logo__slogan {
+        font-size: 0.643rem;
+    }
+}
+
+.icon_in-title {
+    margin-right: 0.5rem;
+}

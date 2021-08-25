@@ -1,0 +1,21 @@
+- 
+  var footerNav = [
+    {url: 'buy.html', name: 'Buy This Theme'}, 
+    {url: 'contact.html', name: 'Contact Us'},
+    {url: 'faq.html', name: 'FAQ'}, 
+    {url: 'who.html', name: 'Who we are?'}
+  ];
+
+mixin footerNav(url, name)
+    li.footer-nav-item
+        a.footer-nav-item__link(href=url) #{name}
+
+.footer
+    .footer__logo-holder
+        a.logo
+            .logo__name oxxo 
+            .logo__slogan responsive theme
+    .copyright 2014 ® All Rights Reserved - OXXO Responsive Theme
+    ul.footer-nav
+        each i in footerNav
+            +footerNav (i.url, i.name)
