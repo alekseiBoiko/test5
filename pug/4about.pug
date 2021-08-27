@@ -36,7 +36,7 @@ mixin contactInfo (item1, item2)
 mixin latestArticles(articlesNumber)
     - for (var x=0; x<articlesNumber; x++)
         li.articles-item
-            a.articles-holder
+            a.articles-holder(href="works_page.html")
                 img.articles-img(src=`images/Post image ${x+1}.png` alt=`Post image ${x+1}`)
                 .articles-content 
                     h3.block-item__name Lorem Ipsum Post Title

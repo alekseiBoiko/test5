@@ -1,0 +1,135 @@
+- 
+    var filterItems = [
+        {itemName: 'Photography', itemClass: 'photo'}, 
+        {itemName: 'Old Style', itemClass: 'old'}, 
+        {itemName: 'Technology', itemClass: 'tech'}, 
+        {itemName: 'Lifestyle', itemClass: 'life'}, 
+        {itemName: 'Wordpress & PHP', itemClass: 'wordpress'}, 
+        {itemName: 'Photoshop', itemClass: 'psd'}
+    ]
+
+-
+    var socialMedia = [
+        {iconPrefix: 'facebook-f', mediaUrl: 'facebook.com'},
+        {iconPrefix: 'twitter', mediaUrl: 'twitter.com'},
+        {iconPrefix: 'linkedin-in', mediaUrl: 'linkedin.com'},
+        {iconPrefix: 'pinterest-p', mediaUrl: 'pinterest.com'},
+        {iconPrefix: 'instagram', mediaUrl: 'instagram.com'},
+    ]
+
+- 
+  var footerNav = [
+    {url: 'buy.html', name: 'Buy This Theme'}, 
+    {url: 'contact.html', name: 'Contact Us'},
+    {url: 'faq.html', name: 'FAQ'}, 
+    {url: 'who.html', name: 'Who we are?'}
+  ];
+
+
+mixin filterList (itemName, itemClass)
+    if itemClass=='photo'
+        a.works__element.filter-item.works__element_active(data-filter=`.${itemClass}`) #{itemName}
+    else
+        a.works__element.filter-item(data-filter=`.${itemClass}`) #{itemName}
+
+mixin socialList(iconPrefix, mediaUrl)
+    li.social-item
+        a.social-link(href=mediaUrl)
+            i(class=`fab fa-${iconPrefix} ${iconClass}`)
+
+mixin footerNav(url, name)
+    li.footer-nav-item
+        a.footer-nav-item__link(href=url) #{name}
+        
+doctype html
+html(lang='en')
+  head
+    include head.pug    
+  body
+    include 1header.pug
+    //- nav.breadcrumb(aria-label='Breadcrumb')
+    .about-us    
+        .section-container
+            ul.breadcrumb-list
+                li.breadcrumb-list-item
+                    a(href='') Home
+                li.breadcrumb-list-item
+                    a(href='') Pages
+                li.breadcrumb-list-item
+                    span.breadcrumb__page-name_active(aria-current='page') About Us Page
+    .section-container
+        br
+        br
+        .works-filter
+            .filter-list
+                each i in filterItems
+                    +filterList(i.itemName, i.itemClass)
+        .works-item
+            .works-item-holder
+                .works-img-holder
+                    img.works-img(src=`images/Portfolio-Image-1.png`)
+                    .works__element.works-overlay
+                        a.works-overlay-icons-holder(href=`images/Portfolio-Image-1.png` data-fancybox="images")
+                            i.fas.fa-expand-arrows-alt
+                        a.works-overlay-icons-holder(href="works_page.html")
+                            i.fas.fa-external-link-alt
+                .works-item-title Yellow Old Car
+                .works-item-type Retro, Yellow
+        .isotope-pager
+            a.pager.works__element &lt;
+            a.pager.works__element.works__element_active(href='javascript:void(0);' data-page='1') 1
+            a.pager.works__element(href='javascript:void(0);' data-page='2') 2
+            a.pager.works__element(href='javascript:void(0);' data-page='3') 3
+            a.pager.works__element &gt;
+    .about-us 
+        .section-container
+            .section-block-list 
+                .section-block-item
+                    ul.social-list
+                        each i in socialMedia
+                            +socialList(i.iconPrefix, i.mediaUrl)
+                .section-block-item
+                    .articles-list    
+                        .articles-item
+                            a.articles-holder(href="works_page.html")
+                                img.articles-img(src=`images/Post image 1.png` alt=`Post image 1`)
+                                .articles-content 
+                                    h3.block-item__name Lorem Ipsum Post Title
+                                    p.block-item__text.block-item__text_small Lorem ipsum dolor sit amet, conse adipiscing elit. Lorem
+                                    p.block-item__text.block-item__text_small.block-item__text_orange 8 April, 2014 - by Admin
+                .section-block-item
+                    .service-list 
+                        .service-item
+                            h3.block-item__name Web Design & Development
+                            span.icon_unhide-text-below
+                            p.block-item__text.block-item__text_small.block-item__text_hidden Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lecto-rum. Mirum est notare quam littera gothica, quam nunc. Claritas est etiam processus dynamicus, qui sequitur mutationem tudium.
+                li.section-block-item
+                    form.contact-forms(action='#' method='post' )
+                        .input-holder.input-holder_for-name
+                            input.input_custom(type='text' name='Name' required='' placeholder="Name*")
+                        .input-holder.input-holder_for-mail
+                            input.input_custom(type='text' name='Email' required='' placeholder="E-Mail*")
+                        .input-holder.input-holder_for-message
+                            textarea.textarea_custom(required='' placeholder="Message")
+                        button.input-button 
+                            i.far.fa-envelope.icon_in-title 
+                            .input-button__name Submit
+    .footer
+        .section-container
+            .footer__logo-holder
+                a.logo(href="index.html")
+                    .logo__name oxxo 
+                    .logo__slogan responsive theme
+            ul.footer-nav
+                each i in footerNav
+                    +footerNav (i.url, i.name)
+                
+    script(src='js/jquery-3.6.0.min.js')
+    script(src='js/imagesloaded.pkgd.min.js')
+    script(src="js/isotope.pkgd.min.js")
+    script(src="js/jquery.fancybox.min.js")
+    script(src='js/mmenu-light.js')
+    script(src='js/functions.js')
+    script(src='js/isotope-custom.js')
+
+        

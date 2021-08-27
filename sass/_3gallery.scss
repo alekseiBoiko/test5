@@ -16,112 +16,112 @@
     background: $orange;
 }
 
+.works-filter {
+    width: 100%;
+
+    @include flex(unset, unset, center, center);
+
+    .filter-list {
+        display: flex;
+
+        .filter-item {
+            padding: 0.8rem 1rem;
+            margin: 0;
+            border-radius: 0%;
+        }
+    }
+}
+
+.works-item {
+    width: 25%;
+
+    .works-item-holder {
+        margin: 0.9rem 1rem;
+        text-align: center;
+        border: 1px solid #e4e4e4;
+
+        .works-img-holder {
+            position: relative;
+
+            .works-img {
+                width: 100%;
+                height: 11.3rem;
+                object-fit: cover;
+            }
+
+            .works-overlay {
+                @include flex(null,unset,space-between, start);
+                @include transition(opacity);
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                padding: 3.7rem;
+                opacity: 0;
+
+                .works-overlay-icons-holder {
+                    padding: 1.25rem;
+                    border: 1px solid #f0f0f0;
+                    border-radius: 50%;
+
+                    @include transition(color background-color);
+
+                    &:hover {
+                        color: $orange;
+                        background-color: #fff;
+                    }
+                }
+            }
+
+            &:hover .works-overlay {
+                opacity: 0.8;
+            }
+        }
+
+        .works-item-title {
+            padding-top: 1rem;
+            font-size: 1.14rem;
+        }
+
+        .works-item-type {
+            padding: 0.7rem 0 1rem;
+            font-weight: 300;
+        }
+    }
+}
+
+.isotope-pager {
+    @include flex(unset, unset, center, center);
+
+    padding: 1.2rem;
+    margin: 0 -0.2rem;
+
+    .pager {
+        @include flex(unset, unset, center, center);
+
+        width: 2.25rem;
+        height: 2.25rem;
+        margin-right: 0.5rem;
+
+        &:first-child {
+            margin-right: 0.75rem;
+        }
+
+        &:last-child {
+            margin-left: 0.25rem;
+        }
+    }
+}
+
 .works {
     padding-top: 6.2rem;
     padding-bottom: 11rem;
 
     .section-container {
-        .works-filter {
-            width: 100%;
-
-            @include flex(unset, unset, center, center);
-
-            .filter-list {
-                display: flex;
-
-                .filter-item {
-                    padding: 0.8rem 1rem;
-                    margin: 0;
-                    border-radius: 0%;
-                }
-            }
-        }
-
         .works-list {
             margin: 2.6rem -1rem;
-
-            .works-item {
-                width: 25%;
-
-                .works-item-holder {
-                    margin: 0.9rem 1rem;
-                    text-align: center;
-                    border: 1px solid #e4e4e4;
-
-                    .works-img-holder {
-                        position: relative;
-
-                        .works-img {
-                            width: 100%;
-                            height: 11.3rem;
-                            object-fit: cover;
-                        }
-
-                        .works-overlay {
-                            @include flex(null,unset,space-between, start);
-                            @include transition(opacity);
-
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            padding: 3.7rem;
-                            opacity: 0;
-
-                            .works-overlay-icons-holder {
-                                padding: 1.25rem;
-                                border: 1px solid #f0f0f0;
-                                border-radius: 50%;
-
-                                @include transition(color background-color);
-
-                                &:hover {
-                                    color: $orange;
-                                    background-color: #fff;
-                                }
-                            }
-                        }
-
-                        &:hover .works-overlay {
-                            opacity: 0.8;
-                        }
-                    }
-
-                    .works-item-title {
-                        padding-top: 1rem;
-                        font-size: 1.14rem;
-                    }
-
-                    .works-item-type {
-                        padding: 0.7rem 0 1rem;
-                        font-weight: 300;
-                    }
-                }
-            }
-        }
-
-        .isotope-pager {
-            @include flex(unset, unset, center, center);
-
-            padding: 1.2rem;
-            margin: 0 -0.2rem;
-
-            .pager {
-                @include flex(unset, unset, center, center);
-
-                width: 2.25rem;
-                height: 2.25rem;
-                margin-right: 0.5rem;
-
-                &:first-child {
-                    margin-right: 0.75rem;
-                }
-
-                &:last-child {
-                    margin-left: 0.25rem;
-                }
-            }
         }
     }
 }

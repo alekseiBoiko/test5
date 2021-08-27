@@ -1,17 +1,12 @@
 .block-title {
     width: 100%;
     padding-bottom: 2rem;
-    color: white;
 
     @include flex(unset, unset, flex-start, unset);
 
     .block-title__icon {
         font-size: 1.25rem;
     }
-}
-
-.block-item__name {
-    color: white;
 }
 
 .block-item__text {
@@ -35,84 +30,90 @@
     overflow: hidden;
 }
 
+.articles-list {
+    .articles-item {
+        padding-bottom: 1.6rem;
+
+        .articles-holder {
+            @include flex(unset, unset, space-between, flex-start);   
+
+            .articles-img {
+                max-width: 3.5rem;
+                max-height: 3.5rem;
+                margin-right: 0.9rem;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+.service-list {
+    .service-item {
+        @include flex(wrap, unset, space-between, center);
+
+        padding-bottom: 0.9rem;
+        margin-bottom: 0.6rem;
+        border-bottom: 1px solid white;
+
+        .icon_unhide-text-below {
+            position: relative;
+            width: 15px;
+            height: 15px;
+            background: $orange;
+            border-radius: 50%;
+
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                color: #fff;
+                content: '+';
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    .active {
+        .block-item__text_hidden {
+            height: auto;
+            overflow: unset;
+        }
+
+        .icon_unhide-text-below::before {
+            content: '-';
+        }
+    }
+}
+
 .about-us {
     width: 100%;
     padding-top: 3.6rem;
     padding-bottom: 5rem;
+    color: white;
     background: #303030;
+    border-color: #fff;
 
     .section-container {
         .section-block-list {
             width: 100%;
-    
+
             @include flex(unset, unset, space-between, flex-start);
-    
+
             .section-block-item {
                 width: 22.5%;
-    
+
                 @include flex(unset, column, flex-start, stretch);
-    
+
                 .contact-list {
                     .contact-list-item {
                         padding-bottom: 1rem;
                         font-weight: 300;
                     }
                 }
-    
-                .articles-list {
-                    .articles-item {
-                        padding-bottom: 1.6rem;
-    
-                        .articles-holder {
-                            @include flex(unset, unset, space-between, flex-start);   
-    
-                            .articles-img {
-                                max-width: 3.5rem;
-                                max-height: 3.5rem;
-                                margin-right: 0.9rem;
-                                object-fit: cover;
-                            }
-                        }
-                    }
-                }
 
-                .service-list {
-                    .service-item {
-                        @include flex(wrap, unset, space-between, center);
-        
-                        padding-bottom: 0.9rem;
-                        margin-bottom: 0.6rem;
-                        border-bottom: 1px solid white;
-        
-                        .icon_unhide-text-below {
-                            position: relative;
-                            width: 15px;
-                            height: 15px;
-                            background: $orange;
-                            border-radius: 50%;
-        
-                            &::before {
-                                position: absolute;
-                                top: 50%;
-                                left: 50%;
-                                color: #fff;
-                                content: '+';
-                                transform: translate(-50%, -50%);
-                            }
-                        }
-                    }
+                
 
-                    .active {
-                        .block-item__text_hidden {
-                            height: auto;
-                            overflow: unset;
-                        }
-
-                        .icon_unhide-text-below::before {
-                            content: '-';
-                        }
-                    }
-                }
+                
 
                 .contact-forms {
                     @include flex(wrap, unset, flex-end, flex-start);

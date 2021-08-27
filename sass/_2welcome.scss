@@ -1,7 +1,36 @@
+.breadcrumb-holder {
+    width: 100%;
+
+    @include flex(unset, unset, flex-end, center);
+}
+
+.breadcrumb-list {
+    color: inherit;
+
+    @include flex(unset, unset, stretch, none);
+
+    .breadcrumb-list-item {
+        @include transition(color)
+
+        &:not(:last-child)::after {
+            content: '\00a0>\00a0';
+        }
+
+        &:hover {
+            color: $orange;
+        }
+    }
+
+    .breadcrumb__page-name_active {
+        color: $orange;
+    }
+}
+
 .welcome {
     height: 22rem;
     padding-top: 8.5rem;
     padding-bottom: 1.3rem;
+    color: white;
     background-image: url(../images/cover.png);
     background-position: center;
     background-size: cover;
@@ -19,33 +48,6 @@
                 padding-top: 0.8rem;
                 font-size: 1rem;
                 font-weight: 300;
-            }
-        }
-
-        .breadcrumb {
-            width: 100%;
-
-            @include flex(unset, unset, flex-end, center);
-
-            .breadcrumb-list {
-                display: flex;
-                color: white;
-
-                .breadcrumb-list-item {
-                    @include transition(color)
-
-                    &:not(:last-child)::after {
-                        content: '\00a0>\00a0';
-                    }
-
-                    &:hover {
-                        color: $orange;
-                    }
-                }
-
-                .breadcrumb__page-name_active {
-                    color: $orange;
-                }
             }
         }
     }
