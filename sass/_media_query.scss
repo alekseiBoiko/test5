@@ -1,98 +1,147 @@
 @media only screen and (max-width: 1200px) {
-    html {
-        font-size: 14px;
+    .header .section-container .nav-block .nav-item .nav-item__link {
+        padding: 1rem 0.5rem;
+        font-size: 12px;
+    }
 
-        .bottom-button-left {
-            width: 5rem;
-        }
+    .social-list .social-item {
+        width: 2rem;
+        height: 2rem;
+    }
 
-        .bottom-button-right {
-            max-width: 4rem;
-        }
-
-        .share-button {
-
-            &::before, &::after {
-                width: 30px;
-            }
-
-            &::before {
-                left: 75px;
-            }
-
-            &::after {
-                right: 75px;
-            }
-        }
-
-        // .footer-input-text {
-        //     padding-left: 3rem;
-        // }
+    .footer .section-container .footer-nav .footer-nav-item {
+        margin: 0 0.4rem;
     }
 }
 
 @media only screen and (max-width: 768px) {
-    .left-content-side, .right-content-side {
-        padding: 0;
+    html {
+        font-size: 14px;
     }
 
-    .top-btn {
-        width: 5rem;
-        height: 5rem;
+    .header .section-container {
+        justify-content: end;
+
+        .nav-block {
+            @include flex(unset,column,space-between, flex-start);
+
+            position: absolute;
+            top: 5rem;
+            left: -30%;
+            width: 33vw;
+            background-color: white;
+            opacity: 0;
+            transition: right 1s;
+
+            .nav-item {
+                width: 100%;
+                text-align: left;
+
+                &::after {
+                    top: 2rem;
+                }
+
+                .drop-holder {
+                    bottom: -340%;
+                    left: 100%;
+                    width: inherit;
+                    padding-top: 0;
+
+                    .drop-menu {
+                        width: 33vw;
+                        font-size: 12px;
+
+                        .drop-item .drop-item__link {
+                            width: 75%;
+                        }
+                    }
+                }
+
+                .nav-item__link {
+                    width: 100%;
+                }
+            }
+
+            .nav-item_spread {
+                margin-left: 0;
+            }
+        }
+
+        .nav_active {
+            left: 0;
+            opacity: 1;
+        }
+
+        .menu-btn {
+            display: block;
+        }
     }
+
+    .works .section-container .works-filter .filter-list .filter-item {
+        padding: 0.5rem;
+    }
+
+    .works .section-container .works-list .works-item {
+        width: 33%;
+    }
+
+    .about-us .section-container .section-block-list {
+        flex-wrap: wrap;
+
+        .section-block-item {
+            width: 48%;
+            padding: 1rem 0;
+            border-top: 1px solid white;
+        }
+    }
+
+    .footer .section-container {
+        .copyright {
+            width: 40%;
+            padding-left: 1rem;
+        }
+
+        .footer-nav {
+            font-size: 12px;
+        }
+    }
+
+
 }
 
 @media only screen and (max-width: 576px) {
-    #header #header-top .nav .nav-item .nav-link, #header #header-top .nav .nav-item .dropdown-item-link-custom {
-        padding: 0 0.5rem;
-        font-size: 10px;
-    }
+    .works .section-container {
+        .works-filter .filter-list {
+            flex-wrap: wrap;
 
-    .lifestyle-inner {
-        .lifestyle-col {
-            width: 30%;
-            height: 5rem;
-
-            .lifestyle-button {
-                width: 50%;
-                height: 2rem;
-                font-size: 8px;
-
-                &::before {
-                    width: 125%;
-                    height: 3rem;
-                }
-
-                &.active::after {
-                    width: 10px;
-                    height: 5rem;
-                }
+            .filter-item {
+                width: 33%;
             }
+        }
+
+        .works-list .works-item {
+            width: 50%;
         }
     }
 
-    #footer {
-        .footer-input-text {
-            font-size: 10px;
-            color: #666;
+    .about-us .section-container .section-block-list .section-block-item {
+        width: 100%;
+
+        .social-list {
+            width: 50%;
+        }
+    }
+
+    .footer .section-container {
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+
+        .copyright {
+            width: 70%;
         }
 
-        .footer-input {
-            padding: 0;
-        }
-
-        .top-btn {
-            width: 50px;
-            height: 50px;
-            margin: 0;
-
-            .fa-chevron-up {
-                font-size: 1rem;
-            }
-
-            .btn-text {
-                font-size: 10px;
-            }
+        .footer-nav {
+            padding: 1em 0;
         }
     }
 }

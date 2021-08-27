@@ -1,3 +1,70 @@
+.menu-btn {
+    position: relative;
+	width: 50px;
+	z-index: 3;
+	display: none;
+	height: 50px;
+
+    span {
+		position: absolute;
+		top: 50%;
+		margin-top: -5px;
+		width: 100%;
+		height: 5px;
+		background-color: black;
+        
+        @include transition(background-color);
+
+		&::before {
+			position: absolute;
+			top: 50%;
+			margin-top: -5px;
+			width: 100%;
+			height: 5px;
+			background-color: black;
+			content: '';
+			display: block;
+			transition: 0.2s;
+			transform: translateY(-10px);
+		}
+
+        &::after {
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			height: 5px;
+			background-color: black;
+			content: '';
+			display: block;
+			transition: 0.2s;
+			transform: translateY(10px);
+		}
+	}
+
+    &:hover {
+        span, span::before, span::after {
+            background-color: $orange;
+        }
+    }
+}
+
+.menu-btn_active {
+
+    span {
+		height: 0;
+
+        &:before {
+            transform: rotate(-45deg);
+			transform-origin: center;
+		}
+
+		&:after {
+            transform: rotate(45deg);
+			transform-origin: center;
+        }
+    }
+}
+
 .input-holder {
     position: relative;
     width: 100%;

@@ -30,8 +30,8 @@ mixin socialList(iconPrefix, mediaUrl)
 
 mixin contactInfo (item1, item2)
     li.contact-list-item 
-        h3.block-item__name #{item1}  
-        p.block-item__text #{item2}
+        dt.block-item__name #{item1}  
+            dd.block-item__text #{item2}
 
 mixin latestArticles(articlesNumber)
     - for (var x=0; x<articlesNumber; x++)
@@ -46,47 +46,46 @@ mixin latestArticles(articlesNumber)
 mixin serviceList (item1, item2)
     li.service-item
         h3.block-item__name #{item1}
-        //- .custom-checkbox 
-        input.custom__input(type="checkbox", id="newCheckBox")
-        label.custom__label(for="newCheckBox")
+        span.icon_unhide-text-below
         p.block-item__text.block-item__text_small.block-item__text_hidden #{item2}
 
-section.about-us-container
-    ul.section-block-list    
-        li.section-block-item
-            .block-title
-                i.fas.fa-map-marker.block-title__icon.icon_in-title
-                h2.block-title__name Contact Info
-            ul.contact-list
-                each i in contactInfo
-                    +contactInfo(i.itemName, i.itemValue)
-            ul.social-list
-                each i in socialMedia
-                    +socialList(i.iconPrefix, i.mediaUrl)
-        li.section-block-item
-            .block-title
-                i.fas.fa-address-card.block-title__icon.icon_in-title
-                h2.block-title__name Latest Posts
-            ul.articles-list
-                +latestArticles('3')
-        li.section-block-item
-            .block-title
-                i.fas.fa-leaf.block-title__icon.icon_in-title
-                h2.block-title__name Our Services
-            ul.service-list
-                each i in serviceList
-                    +serviceList(i.itemName, i.itemValue)
-        li.section-block-item
-            .block-title
-                i.far.fa-envelope.block-title__icon.icon_in-title
-                h2.block-title__name Contact Form
-            form.contact-forms(action='#' method='post' )
-                .input-holder.input-holder_for-name
-                    input.input_custom(type='text' name='Name' required='' placeholder="Name*")
-                .input-holder.input-holder_for-mail
-                    input.input_custom(type='text' name='Email' required='' placeholder="E-Mail*")
-                .input-holder.input-holder_for-message
-                    textarea.textarea_custom(required='' placeholder="Message")
-                button.input-button 
-                    i.far.fa-envelope.icon_in-title 
-                    .input-button__name Submit
+section.about-us
+    .section-container
+        ul.section-block-list    
+            li.section-block-item
+                .block-title
+                    i.fas.fa-map-marker.block-title__icon.icon_in-title
+                    h2.block-title__name Contact Info
+                ul.contact-list
+                    each i in contactInfo
+                        +contactInfo(i.itemName, i.itemValue)
+                ul.social-list
+                    each i in socialMedia
+                        +socialList(i.iconPrefix, i.mediaUrl)
+            li.section-block-item
+                .block-title
+                    i.fas.fa-address-card.block-title__icon.icon_in-title
+                    h2.block-title__name Latest Posts
+                ul.articles-list
+                    +latestArticles('3')
+            li.section-block-item
+                .block-title
+                    i.fas.fa-leaf.block-title__icon.icon_in-title
+                    h2.block-title__name Our Services
+                ul.service-list
+                    each i in serviceList
+                        +serviceList(i.itemName, i.itemValue)
+            li.section-block-item
+                .block-title
+                    i.far.fa-envelope.block-title__icon.icon_in-title
+                    h2.block-title__name Contact Form
+                form.contact-forms(action='#' method='post' )
+                    .input-holder.input-holder_for-name
+                        input.input_custom(type='text' name='Name' required='' placeholder="Name*")
+                    .input-holder.input-holder_for-mail
+                        input.input_custom(type='text' name='Email' required='' placeholder="E-Mail*")
+                    .input-holder.input-holder_for-message
+                        textarea.textarea_custom(required='' placeholder="Message")
+                    button.input-button 
+                        i.far.fa-envelope.icon_in-title 
+                        .input-button__name Submit

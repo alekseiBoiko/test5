@@ -10,6 +10,14 @@
     }
 }
 
+.block-item__name {
+    color: white;
+}
+
+.block-item__text {
+    color: $gray;
+}
+
 .block-item__name, .block-item__text {
     line-height: 1.5em;
 }
@@ -27,88 +35,88 @@
     overflow: hidden;
 }
 
-.about-us-container {
+.about-us {
     width: 100%;
     padding-top: 3.6rem;
     padding-bottom: 5rem;
     background: #303030;
 
-    .section-block-list {
-        width: 100%;
-
-        @include flex(unset, unset, space-between, flex-start);
-
-        .section-block-item {
-            width: 22.5%;
-
-            @include flex(unset, column, flex-start, stretch);
-
-            .contact-list {
-                .contact-list-item {
-                    padding-bottom: 1rem;
-                    font-weight: 300;
+    .section-container {
+        .section-block-list {
+            width: 100%;
+    
+            @include flex(unset, unset, space-between, flex-start);
+    
+            .section-block-item {
+                width: 22.5%;
+    
+                @include flex(unset, column, flex-start, stretch);
+    
+                .contact-list {
+                    .contact-list-item {
+                        padding-bottom: 1rem;
+                        font-weight: 300;
+                    }
                 }
-            }
-
-            
-
-            .articles-list {
-                .articles-item {
-                    padding-bottom: 1.6rem;
-
-                    .articles-holder {
-                        @include flex(unset, unset, space-between, flex-start);   
-
-                        .articles-img {
-                            min-width: 3.5rem;
-                            min-height: 3.5rem;
-                            margin-right: 0.9rem;
+    
+                .articles-list {
+                    .articles-item {
+                        padding-bottom: 1.6rem;
+    
+                        .articles-holder {
+                            @include flex(unset, unset, space-between, flex-start);   
+    
+                            .articles-img {
+                                max-width: 3.5rem;
+                                max-height: 3.5rem;
+                                margin-right: 0.9rem;
+                                object-fit: cover;
+                            }
                         }
                     }
                 }
-            }
 
-            .service-list .service-item {
-                @include flex(wrap, unset, space-between, center);
+                .service-list {
+                    .service-item {
+                        @include flex(wrap, unset, space-between, center);
+        
+                        padding-bottom: 0.9rem;
+                        margin-bottom: 0.6rem;
+                        border-bottom: 1px solid white;
+        
+                        .icon_unhide-text-below {
+                            position: relative;
+                            width: 15px;
+                            height: 15px;
+                            background: $orange;
+                            border-radius: 50%;
+        
+                            &::before {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                color: #fff;
+                                content: '+';
+                                transform: translate(-50%, -50%);
+                            }
+                        }
+                    }
 
-                padding-bottom: 0.9rem;
-                margin-bottom: 0.6rem;
-                border-bottom: 1px solid white;
+                    .active {
+                        .block-item__text_hidden {
+                            height: auto;
+                            overflow: unset;
+                        }
 
-                .custom__label {
-                    position: relative;
-                    display: inline-block;
-                    width: 15px;
-                    height: 15px;
-                    background: $orange;
-                    border-radius: 50%;
-
-                    &::before {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        color: #fff;
-                        content: '+';
-                        transform: translate(-50%, -50%);
+                        .icon_unhide-text-below::before {
+                            content: '-';
+                        }
                     }
                 }
 
-                .custom__input {
-                    display: none;
-
-                    &:checked + .custom__label::before {
-                        content: '-';
-                    }
-
-                    &:checked + .custom__label + .block-item__text_hidden {
-                        height: auto;
-                        overflow: unset;
-                    }
+                .contact-forms {
+                    @include flex(wrap, unset, flex-end, flex-start);
                 }
-            }
-
-            .contact-forms {
-                @include flex(wrap, unset, flex-end, flex-start);
             }
         }
     }

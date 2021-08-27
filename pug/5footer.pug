@@ -11,11 +11,12 @@ mixin footerNav(url, name)
         a.footer-nav-item__link(href=url) #{name}
 
 .footer
-    .footer__logo-holder
-        a.logo
-            .logo__name oxxo 
-            .logo__slogan responsive theme
-    .copyright 2014 ® All Rights Reserved - OXXO Responsive Theme
-    ul.footer-nav
-        each i in footerNav
-            +footerNav (i.url, i.name)
+    .section-container
+      .footer__logo-holder
+          a.logo(href="index.html")
+              .logo__name oxxo 
+              .logo__slogan responsive theme
+      .copyright 2014 ® All Rights Reserved - OXXO Responsive Theme
+      ul.footer-nav
+          each i in footerNav
+              +footerNav (i.url, i.name)

@@ -32,31 +32,22 @@ mixin workList (imgNumber, imgTitle, imgTag, itemClass)
             .works-img-holder
                 img.works-img(src=`images/Portfolio-Image-${imgNumber}.png` alt=`${imgTitle}`)
                 .works__element.works-overlay
-                    .works-overlay-icons-holder
+                    a.works-overlay-icons-holder(href=`images/Portfolio-Image-${imgNumber}.png` data-fancybox="images")
                         i.fas.fa-expand-arrows-alt
-                    .works-overlay-icons-holder
+                    a.works-overlay-icons-holder(href="works_page.html")
                         i.fas.fa-external-link-alt
             .works-item-title #{imgTitle}
             .works-item-type #{imgTag}
 
-//- mixin pagination (listNumber)
-//-     ul.works-list-pagination
-//-         li.pagination-item 
-//-             a.pagination-item_link <
-//-         - for (var x=0; x<listNumber; x++)
-//-             li.pagination-item 
-//-                 a.pagination-item_link #{x+1}
-//-         li.pagination-item 
-//-             a.pagination-item_link >
-
-section.works-container 
-    .works-filter
-        .filter-list
-            each i in filterItems
-                +filterList(i.itemName, i.itemClass)
-    ul.works-list
-        - for (var x=0; x<3; x++)
-            each i in imgItems
-                +workList(i.imgNumber, i.imgTitle, i.imgTag, i.itemClass)
+section.works
+    .section-container
+        .works-filter
+            .filter-list
+                each i in filterItems
+                    +filterList(i.itemName, i.itemClass)
+        ul.works-list
+            - for (var x=0; x<3; x++)
+                each i in imgItems
+                    +workList(i.imgNumber, i.imgTitle, i.imgTag, i.itemClass)
     //- +pagination('3')
         

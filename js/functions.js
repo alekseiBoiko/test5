@@ -1,35 +1,22 @@
-$(function(){
-  sortIsotope();
-  }
-);
-
-function sortIsotope() {
-
-  var $list = $('.works-list').isotope({
-    itemSelector: '.works-item',
-    percentPosition: true,
-    layoutMode: 'fitRows'
-  });
-
-  var filterAttribute = 'data-filter';
-  
-  $list.imagesLoaded().progress(function(){
-    $list.isotope('layout');
-  });
-  
-  $('.filter-list').on( 'click', 'button', function() {
-  var filterValue = $( this ).attr('data-filter');
-  // use filterFn if matches value
-  // filterValue = filterFns[ filterValue ] || filterValue;
-  $('.works-list').isotope({ filter: filterValue });
-  });
-  
-  // change is-checked class on buttons
-  $('.filter-list').each( function( i, buttonGroup ) {
-    var $buttonGroup = $( buttonGroup );
-    $buttonGroup.on( 'click', 'button', function() {
-      $buttonGroup.find('.filter-active').removeClass('filter-active');
-      $( this ).addClass('filter-active');
-    });
-  });
+function changeHamburger() {
+    $('.menu-btn').on('click', function(e) {
+      e.preventDefault();
+      $(this).toggleClass('menu-btn_active');
+      $('.nav-block').toggleClass('nav_active');
+    })
 };
+
+function turnonFancybox() {
+    $("[data-fancybox]").fancybox();
+};
+
+let servicesList = $('.service-list'),
+    servicesItem = servicesList.find('.service-item');
+  servicesItem.on('click', function (event) {
+    event.stopPropagation();
+    let cur = $(this);
+    cur.toggleClass('active').siblings().removeClass('active');
+  });
+
+changeHamburger();
+turnonFancybox();

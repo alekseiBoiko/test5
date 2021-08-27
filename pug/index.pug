@@ -1,15 +1,5 @@
-doctype html
-html(lang='en')
-  head
-    include head.pug    
-  body
-    include 1header.pug
-    include 2welcome.pug
-    include 3gallery.pug
-    include 4about.pug
-    include 5footer.pug
-    script(src='js/jquery-3.6.0.min.js')
-    script(src='js/imagesloaded.pkgd.min.js')
-    script(src="js/isotope.pkgd.min.js")
-    //- script(src='js/functions.js')
-    script(src='js/isotope-custom.js')
+extends page.pug
+block content
+  include 2welcome.pug
+  include 3gallery.pug
+  include 4about.pug

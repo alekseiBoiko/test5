@@ -1,10 +1,5 @@
-// html {
-//     font-family: 'Montserrat', sans-serif;
-//     font-size: 16px;
-// }
-
 body {
-    max-width: 1440px;
+    // max-width: 1440px;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
 }
@@ -13,10 +8,6 @@ b {
     font-weight: bold;
 }
 
-.welcome-container, .works-container, .about-us-container, .footer {
-    padding-right: 9.375%;
-    padding-left: 9.3%;
-}
 
 a {
     color: unset;
@@ -37,6 +28,12 @@ p {
     font-size: 0.875rem;
     font-weight: 300;
     color: #acabab;
+}
+
+.section-container {
+    height: 100%;
+    padding-right: 9.375%;
+    padding-left: 9.3%;
 }
 
 .logo {

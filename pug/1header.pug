@@ -1,40 +1,36 @@
 - 
-  var leftSideNav = [
+  var headerNav = [
     {url: 'about.html', name: 'about us'}, 
     {url: 'who.html', name: 'who we are?'}, 
     {url: 'portfolio.html', name: 'portfolio'}, 
-    {url: 'team.html', name: 'our team'}
-  ];
-
-- 
-  var rightSideNav = [
-    {url: '#', name: 'services'}, 
+    {url: 'team.html', name: 'our team'},
+    {url: '/services/', name: 'services'}, 
     {url: 'clients.html', name: 'clients'}, 
     {url: 'how.html', name: 'how we do?'}, 
     {url: 'contact.html', name: 'contact us'}
   ];
 
-mixin dropRightItems (itemsNumber)
+mixin dropSub2 (itemsNumber)
   - for (var y=0; y<itemsNumber; y++)
-    li.drop-item.drop-item_right
-      a.drop-item__link(href="services/dropRightItem"+(y+1)) dropright title #{y+1}
+    li.drop-item.drop-item_sub2
+      a.drop-item__link(href=`/services/dropDown${x+1}/dropRight${y+1}.html`) dropright title #{y+1}
 
-mixin dropDownItems (itemsNumber)
+mixin dropSub1 (itemsNumber)
   - for (var x=0; x<itemsNumber; x++)
-    li.drop-item.drop-item_down
-      a.drop-item__link dropdown title #{x+1}
-      ul.drop-menu.drop-menu_right
-        +dropRightItems (3)
-
+    li.drop-item.drop-item_sub1
+      ul.drop-menu.drop-menu_sub2
+        +dropSub2 (3)
+      a.drop-item__link(href=`/services/dropDown${x+1}/`) dropdown title #{x+1}
 
 mixin navItem(url, name)
   if name=='services'
-    li.nav-item
-      a.nav-item__link
+    li.nav-item.nav-item_spread
+      .drop-holder
+        ul.drop-menu.drop-menu_sub1
+          +dropSub1 (8)
+      //- .hide-wrap_for-drop-menu
+      a.nav-item__link(href=url)
         b= name
-      .hide-wrap_for-drop-menu
-      ul.drop-menu.drop-menu_down
-        +dropDownItems (8)
   else
     li.nav-item
       a.nav-item__link(href=url)
@@ -42,14 +38,13 @@ mixin navItem(url, name)
 
 
 header.header
-  ul.nav-block
-    each i in leftSideNav
-      +navItem(i.url, i.name)
-  .header__logo-holder
-    a.logo
-      .logo__name oxxo 
-      .logo__slogan responsive theme
-  ul.nav-block
-    each i in rightSideNav
-      +navItem(i.url, i.name)
-  
+  .section-container
+    ul.nav-block
+      each i in headerNav
+        +navItem(i.url, i.name)
+    .header__logo-holder
+      a.logo(href="index.html")
+        .logo__name oxxo 
+        .logo__slogan responsive theme
+    a.menu-btn
+      span

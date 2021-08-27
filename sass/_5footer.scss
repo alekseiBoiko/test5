@@ -1,35 +1,39 @@
 .footer {
-    height: 70px;
+    min-height: 4.375rem;
+    padding-top: 1rem;
     color: white;
     background: #202020;
 
-    @include flex(unset, unset, space-between, center);
-
-    .footer__logo-holder {
-        padding-bottom: 0.5rem;
-    }
-
-    .copyright {
-        width: 56%;
-        font-size: 0.875rem;
-        font-weight: 300;
-        text-align: left;
-    }
-
-    .footer-nav {
-        margin: 0 -1rem;
-        font-weight: 300;
-        color: #acabab;
-
+    .section-container {
         @include flex(unset, unset, space-between, center);
 
-        .footer-nav-item {
-            margin: 0 0.8rem;
+        .footer__logo-holder {
+            min-width: 6.25rem;
+            padding-bottom: 0.5rem;
+        }
 
-            @include transition(color);
+        .copyright {
+            width: 56%;
+            font-size: 0.875rem;
+            font-weight: 300;
+            text-align: left;
+        }
 
-            &:hover {
-                color: white;
+        .footer-nav {
+            margin: 0 -1rem;
+            font-weight: 300;
+            color: #acabab;
+
+            @include flex(unset, unset, space-between, center);
+
+            .footer-nav-item {
+                margin: 0 0.8rem;
+
+                @include transition(color);
+
+                &:hover {
+                    color: white;
+                }
             }
         }
     }
